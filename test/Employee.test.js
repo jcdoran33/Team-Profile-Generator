@@ -1,5 +1,4 @@
 // require the lib -> Employee.js file
-const { exportAllDeclaration } = require("@babel/types");
 const { default: TestRunner } = require("jest-runner");
 const Employee = require("../lib/Employee");
 
