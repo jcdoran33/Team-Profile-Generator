@@ -133,3 +133,45 @@ function managerPrompt() {
     });
 };
 
+//define engineerPrompt for when user selects Engineer as employee type to add
+function engineerPrompt() {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What is the employee's ID number?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is the employee's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the employee's email?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What is the employee's Github username?",
+            name: "github",
+        }
+    ])
+    .then((response) => {
+        //first create a new Engineer obj, passing in prompt responses
+        const newEntry = new Engineer(response.id, response.name, response.email, response.github);
+        //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
+        if (employeeIds.includes(response.id)) {
+            console.log("This ID is already used by an employee. Please enter a unique employee ID.");
+        } else {
+            employeeIds.push(response.id);
+            teamMembers.push(newEntry);
+        };
+        //then push newEntry object to the teamMembers array
+        console.log("Team members array: ", teamMembers);
+    })
+    .then(() => {
+        return mainPromptFunc();
+    });
+};
