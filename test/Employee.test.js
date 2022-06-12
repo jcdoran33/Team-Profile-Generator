@@ -4,9 +4,9 @@ const Employee = require("../lib/Employee");
 
 //run tests....
 test("Initialization of Employee class", () => {
-    const obj = new Employee(id, name, email);
+    const obj = new Employee(7, "Paul", "paul@email.net");
     //how do we test to see that a class anme Employee was created?
-    expect(obj).toEqual(Employee(id, name, email));
+    expect(obj).toEqual(new Employee(7, "Paul", "paul@email.net"));
 });
 
 test("Constructor initialized with a name", () => {
