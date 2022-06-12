@@ -70,6 +70,18 @@ function mainPromptFunc() {
             type: "list",
             message: "Which type of employee would you like to add to the team?",
             name: "employeeType",
+            choices: ["Manager", "Engineer", "Intern", "All done adding employees"]
         }
     ])
-}
+    .then((response) => {
+        if (response.name === "All done adding employees") {
+            return console.log("All done!");
+        } else if (response.name === "Manager") {
+            return managerPrompt();
+        } else if (response.name === "Engineer") {
+            return engineerPrompt();
+        } else if (response.name === "Intern") {
+            return internQuestions();
+        }
+    });
+};
