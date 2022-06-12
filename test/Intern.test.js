@@ -12,3 +12,8 @@ test("The method getRole should always return Intern", () => {
     const obj = new Intern();
     expect(obj.getRole()).toEqual("Intern");
 });
+
+test("Method getSchool() should return the school of the intern", () => {
+    const obj = new Intern(3, "Isaac", "isaac@gmail.com", "Rutgers");
+    expect(obj.getSchool()).toEqual("Rutgers");
+});
