@@ -48,7 +48,7 @@ inquirer
         const newEntry = new Manager(response.id, response.name, response.email, response.officeNum);
         //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
         if (employeeIds.includes(response.id)) {
-            console.log("This ID is already used by an employee");
+            console.log("This ID is already used by an employee. Please enter a unique employee ID.");
         } else {
             employeeIds.push(response.id);
             teamMembers.push(newEntry);
@@ -74,18 +74,23 @@ function mainPromptFunc() {
         }
     ])
     .then((response) => {
-        if (response.name === "All done adding employees") {
+        if (response.employeeType === "All done adding employees") {
             return console.log("All done!");
-        } else if (response.name === "Manager") {
-            return managerPrompt();
-        } else if (response.name === "Engineer") {
+            // need to add line here that launces the function that creates the html file
+        } else if (response.employeeType === "Manager") {
+            managerPrompt();
+            return "Manager prompt luanched!";
+        } else if (response.employeeType === "Engineer") {
             return engineerPrompt();
-        } else if (response.name === "Intern") {
+        } else if (response.employeeType === "Intern") {
             return internQuestions();
+        } else {
+            console.log("Error - the mainPromptFunc did not receive the correct input");
         }
     });
 };
 
+//define managerPrompt for when user selects Manager as employee type to add
 function managerPrompt() {
     inquirer
     .prompt([
@@ -115,7 +120,7 @@ function managerPrompt() {
         const newEntry = new Manager(response.id, response.name, response.email, response.officeNum);
         //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
         if (employeeIds.includes(response.id)) {
-            console.log("This ID is already used by an employee");
+            console.log("This ID is already used by an employee. Please enter a unique employee ID.");
         } else {
             employeeIds.push(response.id);
             teamMembers.push(newEntry);
@@ -127,3 +132,4 @@ function managerPrompt() {
         return mainPromptFunc();
     });
 };
+
