@@ -11,3 +11,8 @@ test("Method getRole should always return Manager", () => {
     const obj = new Manager();
     expect(obj.getRole()).toEqual("Manager");
 });
+
+test("The method getOfficeNum should return the input office number", () => {
+    const obj = new Manager(1, "Paula", "paula@gmail.com", 17);
+    expect(obj.getOfficeNum()).toEqual(obj.officeNum);
+});
