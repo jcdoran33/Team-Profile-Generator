@@ -16,7 +16,7 @@ let fileName;
 let teamMembers = [];
 //empty array for employee ID #'s, so that an ID cannot be repeated
 //based on this, for each new team member obj, will ahave to add their ID to this array, and check when creating a new team member if the ID is taken already
-let employeeIds = [];
+let employeeIds = ["1"];
 
 //SHould I create arrays here for all the groups of questions? (Manager questions, Intern, EMployee questions)
 
@@ -46,7 +46,30 @@ inquirer
     .then((response) => {
         //first create a new Manager obj, passing in prompt responses
         const newEntry = new Manager(response.id, response.name, response.email, response.officeNum);
-        //then append newEntry object to the teamMembers array
-        teamMembers.push(newEntry);
+        //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
+        if (employeeIds.includes(response.id)) {
+            console.log("This ID is already used by an employee");
+        } else {
+            employeeIds.push(response.id);
+            teamMembers.push(newEntry);
+        };
+        //then push newEntry object to the teamMembers array
         console.log("Team members array: ", teamMembers);
+    })
+    // now, use another .then to launch the main (non first instance) of inquirer prompt?
+    .then(() => {
+        mainPromptFunc();
     });
+
+
+//define function that will create the main prompt (that lets you choose the role you are entering)
+function mainPromptFunc() {
+    inquirer
+    .prompt([
+        {
+            type: "list",
+            message: "Which type of employee would you like to add to the team?",
+            name: "employeeType",
+        }
+    ])
+}
