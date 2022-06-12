@@ -8,3 +8,12 @@ test("Constructor should initialize a github user name", () => {
     expect(obj.github).toEqual("eric123");
 });
 
+test("The method getRole should always return Engineer", () => {
+    const obj = new Engineer();
+    expect(obj.getRole()).toEqual("Engineer");
+});
+
+test("The method getGithub should reutrn the input Github username", () => {
+    const obj = new Engineer(2, "Eric", "egineereric@gmail.com",  "eric123");
+    expect(obj.getGithub()).toEqual("eric123");
+});
