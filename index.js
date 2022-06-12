@@ -78,12 +78,11 @@ function mainPromptFunc() {
             return console.log("All done!");
             // need to add line here that launces the function that creates the html file
         } else if (response.employeeType === "Manager") {
-            managerPrompt();
-            return "Manager prompt luanched!";
+            return managerPrompt();
         } else if (response.employeeType === "Engineer") {
             return engineerPrompt();
         } else if (response.employeeType === "Intern") {
-            return internQuestions();
+            return internPrompt();
         } else {
             console.log("Error - the mainPromptFunc did not receive the correct input");
         }
@@ -161,6 +160,49 @@ function engineerPrompt() {
     .then((response) => {
         //first create a new Engineer obj, passing in prompt responses
         const newEntry = new Engineer(response.id, response.name, response.email, response.github);
+        //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
+        if (employeeIds.includes(response.id)) {
+            console.log("This ID is already used by an employee. Please enter a unique employee ID.");
+        } else {
+            employeeIds.push(response.id);
+            teamMembers.push(newEntry);
+        };
+        //then push newEntry object to the teamMembers array
+        console.log("Team members array: ", teamMembers);
+    })
+    .then(() => {
+        return mainPromptFunc();
+    });
+};
+
+//define internPrompt for when user selects Intern as employee type to add
+function internPrompt() {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What is the employee's ID number?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is the employee's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the employee's email?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What is the employee's school?",
+            name: "school",
+        }
+    ])
+    .then((response) => {
+        //first create a new Engineer obj, passing in prompt responses
+        const newEntry = new Intern(response.id, response.name, response.email, response.school);
         //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
         if (employeeIds.includes(response.id)) {
             console.log("This ID is already used by an employee. Please enter a unique employee ID.");
