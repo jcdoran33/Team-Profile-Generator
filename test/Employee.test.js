@@ -35,3 +35,12 @@ test("Method getId function correctly", () => {
     expect(obj.getId()).toEqual(obj.id);
 });
 
+test("Method getEmail functions correctly", () => {
+    const obj = new Employee(2, "Jack", "jack@email.com");
+    expect(obj.getEmail()).toEqual(obj.email);
+});
+
+test("Method getRole functions correctly", () => {
+    const obj = new Employee(2, "Jack", "jack@email.com");
+    expect(obj.getRole()).toEqual("Employee");
+})
