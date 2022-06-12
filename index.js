@@ -18,6 +18,8 @@ let teamMembers = [];
 //based on this, for each new team member obj, will ahave to add their ID to this array, and check when creating a new team member if the ID is taken already
 let employeeIds = [];
 
+//SHould I create arrays here for all the groups of questions? (Manager questions, Intern, EMployee questions)
+
 inquirer
     .prompt([
         {
@@ -44,5 +46,7 @@ inquirer
     .then((response) => {
         //first create a new Manager obj, passing in prompt responses
         const newEntry = new Manager(response.id, response.name, response.email, response.officeNum);
-        //then append newEntry object ot the teamMebers array
+        //then append newEntry object to the teamMembers array
+        teamMembers.push(newEntry);
+        console.log("Team members array: ", teamMembers);
     });
