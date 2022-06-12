@@ -8,3 +8,7 @@ test("Intern object should set a school property", () => {
     expect(obj.school).toEqual("Rutgers");
 });
 
+test("The method getRole should always return Intern", () => {
+    const obj = new Intern();
+    expect(obj.getRole()).toEqual("Intern");
+});
