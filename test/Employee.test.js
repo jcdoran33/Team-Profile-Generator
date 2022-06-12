@@ -25,3 +25,8 @@ test("Constructor initiated with an email", () => {
     expect(obj.email).toBeTruthy();
 });
 
+test("Method getName functions correctly", () => {
+    const obj = new Employee(2, "Jack", "jack@email.com");
+    expect(obj.name).toEqual("Jack");
+});
+
