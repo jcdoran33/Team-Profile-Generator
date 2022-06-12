@@ -85,3 +85,45 @@ function mainPromptFunc() {
         }
     });
 };
+
+function managerPrompt() {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "What is the employee's ID number?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is the employee's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the employee's email?",
+            name: "email",
+        },
+        {
+            type: "input",
+            message: "What is the employee's office number?",
+            name: "officeNum",
+        }
+    ])
+    .then((response) => {
+        //first create a new Manager obj, passing in prompt responses
+        const newEntry = new Manager(response.id, response.name, response.email, response.officeNum);
+        //check if ID number is already in employeeID array, IF so, return error, IF not, push to array
+        if (employeeIds.includes(response.id)) {
+            console.log("This ID is already used by an employee");
+        } else {
+            employeeIds.push(response.id);
+            teamMembers.push(newEntry);
+        };
+        //then push newEntry object to the teamMembers array
+        console.log("Team members array: ", teamMembers);
+    })
+    .then(() => {
+        return mainPromptFunc();
+    });
+};
