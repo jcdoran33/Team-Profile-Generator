@@ -233,8 +233,9 @@ function generateHtml(cardsArray) {
     //Note: This function is just to create all teh html content. In a separate function, use fs to write file
     // console.log("Test: " + cardsArray);
     //define any variable here (arrays?)
-    let cardsString = cardsArray.toString().replace(",","");
-    console.log("Cards string test of foramt: " + cardsString);
+    let re = /,/gi; // regular expression so we can replace alll of the commas
+    let cardsString = cardsArray.toString().replace(re,"");
+        console.log("Cards string test of foramt: " + cardsString);
     //then return the back ticked HTML, with the cardArray[i] at proper spots (if we cant reference cardArray here, 
     // will have to find work around OR make sure it is passed when called in cardGenerator function)
     
