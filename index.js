@@ -244,6 +244,29 @@ function generateHtml () {
 function generateCards () {
     //this function should generate the block of html that will contain all the cards
     //so that it can be pasted into the html generate in generateHtml()
+    //first, generate the html for a single card with appropriate variables inserted
+    //when done, save that content to a variable that we can pass into the generate html function?
+    
+    //need to start with a loop that will loop through the team members array, and create a card for each one
+    for (let i = 0; i < teamMembers.length; i++) {
+        let empId = teamMembers[i].id;
+        let empName = teamMembers[i].name;
+        let empEmail = teamMembers[i].email;
+        let empSpecial;
+        //can we reference the object name? if obj is instance of Manager, do this
+        if (teamMembers[i] instanceof Manager) {
+            empSpecial = teamMembers[i].officeNum;
+        } else if (teamMembers[i] instanceof Engineer) {
+            empSpecial = teamMembers[i].github;
+        } else if (teamMembers[i] instanceof Intern) {
+            empSpecial = teamMembers[i].school;
+        };
+        
+
+        
+    };
+
+
 };
 
 function writeFile () {
