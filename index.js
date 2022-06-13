@@ -278,27 +278,23 @@ function generateCards () {
         //it should create ONE card, then push it to the array
         //...then in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
         let cardsArray = []; // create empty card array to house all created cards
-        for (let n = 0; n < teamMembers.length; n++) {
             let cardBlock = `
             <div class="card" style="width: 18rem;">
             <div class="card-header bg-primary" id="name">
-              ${empName[n]}
+              ${empName[i]}
             </div>
             <div class="card-header bg-secondary" id="role">
-              ${empRole[n]}
+              ${empRole[i]}
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item bg-light" id="id">${empId[n]}</li>
-              <li class="list-group-item bg-light" id="email">${empEmail[n]}</li>
-              <li class="list-group-item bg-light" id="special">${empSpecial[n]}</li>
+              <li class="list-group-item bg-light" id="id">${empId[i]}</li>
+              <li class="list-group-item bg-light" id="email">${empEmail[i]}</li>
+              <li class="list-group-item bg-light" id="special">${empSpecial[i]}</li>
             </ul>
           </div>
             `
             cardsArray.push(cardBlock);
-            // console.log(cardsArray);
-        };
-        
-        
+            
         console.log(cardsArray);
     };
     
