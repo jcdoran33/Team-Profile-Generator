@@ -263,14 +263,37 @@ function generateCards () {
         //define for the special question...
         if (teamMembers[i] instanceof Manager) {
             empSpecial[i] = teamMembers[i].officeNum;
+            empRole[i] = "Manager";
         } else if (teamMembers[i] instanceof Engineer) {
+            empRole[i] = "Engineer";
             empSpecial[i] = teamMembers[i].github;
         } else if (teamMembers[i] instanceof Intern) {
             empSpecial[i] = teamMembers[i].school;
+            empRole[i] = "Intern";
         };
         
         //now have to loop thru those above arrays and create a card for each....
-
+        //it should create ONE card, then push it to the array
+        //...then in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
+        let cardsArray = []; // create empty card array to house all created cards
+        for (let n = 0; n < teamMembers.length; n++) {
+            return `
+            <div class="card" style="width: 18rem;">
+            <div class="card-header bg-primary" id="name">
+              ${empName[n]}
+            </div>
+            <div class="card-header bg-secondary" id="role">
+              ${empRole[n]}
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-light" id="id">${empId[n]}</li>
+              <li class="list-group-item bg-light" id="email">${empEmail[n]}</li>
+              <li class="list-group-item bg-light" id="special">${empSpecial[n]}</li>
+            </ul>
+          </div>
+            `
+        }
+        
         
     };
 
