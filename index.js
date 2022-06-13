@@ -82,7 +82,8 @@ function mainPromptFunc() {
     .then((response) => {
         if (response.employeeType === "All done adding employees") {
             //generateHtml will contruct the page based on user inputs (stored in the arrays)
-            generateHtml();
+            // generateHtml();
+            generateCards();
             return console.log("All done! Creating team webpage.");
         } else if (response.employeeType === "Manager") {
             return managerPrompt();
@@ -255,6 +256,7 @@ function generateCards () {
         let empName = [];
         let empEmail = [];
         let empSpecial = [];
+        let empRole = [];
         // then redefine the arrays...
         empId[i] = teamMembers[i].id;
         empName[i] = teamMembers[i].name;
@@ -277,7 +279,7 @@ function generateCards () {
         //...then in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
         let cardsArray = []; // create empty card array to house all created cards
         for (let n = 0; n < teamMembers.length; n++) {
-            return `
+            let cardBlock = `
             <div class="card" style="width: 18rem;">
             <div class="card-header bg-primary" id="name">
               ${empName[n]}
@@ -292,10 +294,15 @@ function generateCards () {
             </ul>
           </div>
             `
-        }
+            cardsArray.push(cardBlock);
+            // console.log(cardsArray);
+        };
         
         
+        console.log(cardsArray);
     };
+    
+    //at the end we want to pass the cardsArray to the function generateHtml - so generateHtml(cardsArray)
 
 
 };
