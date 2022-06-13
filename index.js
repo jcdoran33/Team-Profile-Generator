@@ -22,9 +22,15 @@ let employeeIds = ["1"];
 
 inquirer
     .prompt([
+        //need to add to initial prompt 1. ask for company name for use in fileName of HTML
         {
             type: "input",
-            message: "What is the employee's ID number?",
+            message: "To get started building your team's profile, you need to first add the manager. Press Enter to get started.",
+            name: "intro",
+        },
+        {
+            type: "input",
+            message: "What is the Manager's employee ID number?",
             name: "id",
         },
         {
@@ -75,8 +81,9 @@ function mainPromptFunc() {
     ])
     .then((response) => {
         if (response.employeeType === "All done adding employees") {
-            return console.log("All done!");
-            // need to add line here that launces the function that creates the html file
+            //generateHtml will contruct the page based on user inputs (stored in the arrays)
+            generateHtml();
+            return console.log("All done! Creating team webpage.");
         } else if (response.employeeType === "Manager") {
             return managerPrompt();
         } else if (response.employeeType === "Engineer") {
@@ -216,4 +223,27 @@ function internPrompt() {
     .then(() => {
         return mainPromptFunc();
     });
+};
+
+//define generateHtml function, which will use our inputs to create the webpage
+
+function generateHtml () {
+    console.log("generateHtml has been launched!");
+    //will have to loop over the items in the array teamMembers, and create a card in HTML for each
+    //do we need a separate "card generator" function? 
+    //In a separate function, use fs to write file
+
+    //define any variable here (arrays?)
+
+    //then return the back ticked HTML
+    return ``;
+};
+
+function generateCards () {
+    //this function should generate the block of html that will contain all the cards
+    //so that it can be pasted into the html generate in generateHtml()
+};
+
+function writeFile () {
+
 };
