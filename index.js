@@ -230,13 +230,12 @@ function internPrompt() {
 
 function generateHtml() {
     console.log("generateHtml has been launched!");
-    //will have to loop over the items in the array teamMembers, and create a card in HTML for each
-    //do we need a separate "card generator" function? 
-    //In a separate function, use fs to write file
-
+    //Note: This function is just to create all teh html content. In a separate function, use fs to write file
+    console.log("Test: " + cardsArray);
     //define any variable here (arrays?)
 
-    //then return the back ticked HTML
+    //then return the back ticked HTML, with the cardArray[i] at proper spots (if we cant reference cardArray here, 
+    // will have to find work around OR make sure it is passed when called in cardGenerator function)
     return `
     
     `;
@@ -274,9 +273,9 @@ function generateCards() {
             empRole[i] = "Intern";
         };
 
-        //now have to loop thru those above arrays and create a card for each....
+        //now have to go thru those above arrays and create a card for each....
         //it should create ONE card, then push it to the array
-        //...then in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
+        //...then later in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
         let cardsArray = []; // create empty card array to house all created cards
         let cardBlock = `
             <div class="card" style="width: 18rem;">
@@ -294,8 +293,9 @@ function generateCards() {
           </div>
             `
         cardsArray.push(cardBlock);
-
         console.log(cardsArray);
+        //then call the generateHTML func with cards array passed to it...
+        generateHtml(cardsArray);
     };
 
     //at the end we want to pass the cardsArray to the function generateHtml - so generateHtml(cardsArray)
@@ -304,5 +304,6 @@ function generateCards() {
 };
 
 function writeFile() {
-
+    //perhaps, we need to use the writeFile here to write a file with skeleton html,...
+    //then use the generateHtml to just append the cards to the html file
 };
