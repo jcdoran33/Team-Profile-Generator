@@ -234,7 +234,7 @@ function generateHtml(cardsArray) {
     // console.log("Test: " + cardsArray);
     //define any variable here (arrays?)
     let cardsString = cardsArray.toString().replace(",","");
-    console.log(cardsString);
+    console.log("Cards string test of foramt: " + cardsString);
     //then return the back ticked HTML, with the cardArray[i] at proper spots (if we cant reference cardArray here, 
     // will have to find work around OR make sure it is passed when called in cardGenerator function)
     
@@ -303,7 +303,7 @@ function generateCards() {
     };
 
     //at the end we want to pass the cardsArray to the function generateHtml - so generateHtml(cardsArray)
-    console.log("Test to check if it is defined at line 301:" + cardsArray);
+    // console.log("Test to check if it is defined at line 301:" + cardsArray);
     generateHtml(cardsArray);
 
 };
