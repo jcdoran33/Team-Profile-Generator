@@ -231,11 +231,16 @@ function internPrompt() {
 function generateHtml(cardsArray) {
     console.log("generateHtml has been launched!");
     //Note: This function is just to create all teh html content. In a separate function, use fs to write file
-    console.log("Test: " + cardsArray);
+    // console.log("Test: " + cardsArray);
     //define any variable here (arrays?)
-
+    let cardsString = cardsArray.toString().replace(",","");
+    console.log(cardsString);
     //then return the back ticked HTML, with the cardArray[i] at proper spots (if we cant reference cardArray here, 
     // will have to find work around OR make sure it is passed when called in cardGenerator function)
+    
+    //in this backtick return, we will have the html outline, and SINCE all cards have already been egenrated in the correct number - we simply have to append the html content in the proper spot
+    // this may require us to convert the array to a string, then save the string as a variable, then insert the new variable into the proper spot in contetn using ${stringed_content} 
+
     return `
     
     `;
@@ -246,10 +251,10 @@ function generateCards() {
     //this function should generate the block of html that will contain all the cards
     //so that it can be pasted into the html generate in generateHtml()
     //first, generate the html for a single card with appropriate variables inserted
-    //when done, save that content to a variable that we can pass into the generate html function?
+
     //define var cards array as empty array so that we can reference it later and send to generateHtml func...
     let cardsArray = [];
-    //need to start with a loop that will loop through the team members array, and create a card for each one
+    //start with a loop that will loop through the team members array, and create a card for each one
     for (let i = 0; i < teamMembers.length; i++) {
         //first create empty arrays...
         let empId = [];
@@ -277,7 +282,6 @@ function generateCards() {
         //now have to go thru those above arrays and create a card for each....
         //it should create ONE card, then push it to the array
         //...then later in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
-        // let cardsArray = []; // create empty card array to house all created cards
         let cardBlock = `
             <div class="card" style="width: 18rem;">
             <div class="card-header bg-primary" id="name">
