@@ -236,7 +236,9 @@ function generateHtml () {
     //define any variable here (arrays?)
 
     //then return the back ticked HTML
-    return ``;
+    return `
+    
+    `;
 };
 
 function generateCards () {
