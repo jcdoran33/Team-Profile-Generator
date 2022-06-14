@@ -16,7 +16,7 @@ let fileName;
 let teamMembers = [];
 //empty array for employee ID #'s, so that an ID cannot be repeated
 //based on this, for each new team member obj, will ahave to add their ID to this array, and check when creating a new team member if the ID is taken already
-let employeeIds = ["1"];
+let employeeIds = [];
 
 //SHould I create arrays here for all the groups of questions? (Manager questions, Intern, EMployee questions)
 
