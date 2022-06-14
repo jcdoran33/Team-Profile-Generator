@@ -323,8 +323,8 @@ function generateCards() {
               ${empRole[i]}
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item bg-light" id="id">${empId[i]}</li>
-              <li class="list-group-item bg-light" id="email"><a href="mailto:${empEmail[i]}">${empEmail[i]}</a></li>
+              <li class="list-group-item bg-light" id="id">ID: ${empId[i]}</li>
+              <li class="list-group-item bg-light" id="email"><a href="mailto:${empEmail[i]}">Email: ${empEmail[i]}</a></li>
               <li class="list-group-item bg-light" id="special">${empSpecial[i]}</li>
             </ul>
           </div>
