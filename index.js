@@ -236,7 +236,7 @@ function generateHtml(cardsArray) {
     //define any variable here (arrays?)
     let re = /,/gi; // regular expression so we can replace alll of the commas
     let cardsString = cardsArray.toString().replace(re,"");
-        console.log("Cards string test of foramt: " + cardsString);
+        // console.log("Cards string test of foramt: " + cardsString);
     //then return the back ticked HTML, with the cardArray[i] at proper spots (if we cant reference cardArray here, 
     // will have to find work around OR make sure it is passed when called in cardGenerator function)
     
@@ -246,10 +246,37 @@ function generateHtml(cardsArray) {
     //using a variable instead of return (this way we can also pass it to the writeFile function)
     let allHtmlContent = 
     `
+    <!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- link to bootstrap CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- link to my custom stylesheet -->
+  <link rel="stylesheet" href="./dist/style.css">
+  <title>Example HTML</title>
+</head>
+
+<body>
+  <div class="container-fluid p-3" id="header-banner">
+    <header id="header-text">My Team</header>
+  </div>
+
+  <div class="container p-4" id="main-section">
+    <div class="row d-flex justify-content-center" id="card-container">
+    ${cardsString}
+    </div>
+  </div>
+</body>
+
+</html>
     `;
+    console.log("HTML check: ", allHtmlContent);
     // return `
-    
     // `;
 };
 
