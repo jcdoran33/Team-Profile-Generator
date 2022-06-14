@@ -11,7 +11,7 @@ const fs = require("fs");
 
 //creat variables for foler and html file name
 //folder??
-let fileName;
+// let fileName = "index.html";
 
 //empty array for the team member objects
 let teamMembers = [];
@@ -237,11 +237,6 @@ function generateHtml(cardsArray) {
     let re = /,/gi; // regular expression so we can replace alll of the commas
     let cardsString = cardsArray.toString().replace(re,"");
         // console.log("Cards string test of foramt: " + cardsString);
-    //then return the back ticked HTML, with the cardArray[i] at proper spots (if we cant reference cardArray here, 
-    // will have to find work around OR make sure it is passed when called in cardGenerator function)
-    
-    //in this backtick return, we will have the html outline, and SINCE all cards have already been egenrated in the correct number - we simply have to append the html content in the proper spot
-    // this may require us to convert the array to a string, then save the string as a variable, then insert the new variable into the proper spot in contetn using ${stringed_content} 
 
     //using a variable instead of return (this way we can also pass it to the writeFile function)
     let allHtmlContent = 
@@ -275,9 +270,12 @@ function generateHtml(cardsArray) {
 
 </html>
     `;
-    console.log("HTML check: ", allHtmlContent);
-    // return `
-    // `;
+    console.log("HTML check: ", allHtmlContent); // to test that the HTML content was created as intended
+
+    // Finally, pass the allHtmlContent variable to the writeFile function
+    writeFile(allHtmlContent);
+    
+
 };
 
 function generateCards() {
@@ -342,7 +340,6 @@ function generateCards() {
 
 };
 
-function writeFile() {
-    //perhaps, we need to use the writeFile here to write a file with skeleton html,...
-    //then use the generateHtml to just append the cards to the html file
+function writeFile(content) {
+    fs.writeFile("index.html", content, (err) => err ? console.error(err) : console.log("Success! Webpage has been created."));
 };
