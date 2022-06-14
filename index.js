@@ -243,9 +243,14 @@ function generateHtml(cardsArray) {
     //in this backtick return, we will have the html outline, and SINCE all cards have already been egenrated in the correct number - we simply have to append the html content in the proper spot
     // this may require us to convert the array to a string, then save the string as a variable, then insert the new variable into the proper spot in contetn using ${stringed_content} 
 
-    return `
-    
+    //using a variable instead of return (this way we can also pass it to the writeFile function)
+    let allHtmlContent = 
+    `
+
     `;
+    // return `
+    
+    // `;
 };
 
 function generateCards() {
