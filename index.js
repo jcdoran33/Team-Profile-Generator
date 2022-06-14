@@ -252,7 +252,7 @@ function generateHtml(cardsArray) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- link to my custom stylesheet -->
-  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="style.css">
   <title>Example HTML</title>
 </head>
 
@@ -341,5 +341,5 @@ function generateCards() {
 };
 
 function writeFile(content) {
-    fs.writeFile("index.html", content, (err) => err ? console.error(err) : console.log("Success! Webpage has been created."));
+    fs.writeFile("dist/team.html", content, (err) => err ? console.error(err) : console.log("Success! Webpage has been created."));
 };
