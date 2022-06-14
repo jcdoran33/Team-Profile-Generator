@@ -4,6 +4,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 //require the Inquirer package to use for prompt
 const inquirer = require("inquirer");
+const path = require('path');
 //require fs for writing files
 const fs = require("fs");
 //import page template source file? sample.html
