@@ -301,13 +301,13 @@ function generateCards() {
 
         //define for the special question...
         if (teamMembers[i] instanceof Manager) {
-            empSpecial[i] = teamMembers[i].officeNum;
+            empSpecial[i] = "Office Number: " + teamMembers[i].officeNum;
             empRole[i] = "Manager";
         } else if (teamMembers[i] instanceof Engineer) {
             empRole[i] = "Engineer";
-            empSpecial[i] = teamMembers[i].github;
+            empSpecial[i] = `Github: <a href="https://github.com/${teamMembers[i].github}" target="_blank">${teamMembers[i].github}</a>`;
         } else if (teamMembers[i] instanceof Intern) {
-            empSpecial[i] = teamMembers[i].school;
+            empSpecial[i] = "School: " + teamMembers[i].school;
             empRole[i] = "Intern";
         };
 
@@ -328,7 +328,7 @@ function generateCards() {
               <li class="list-group-item bg-light" id="special">${empSpecial[i]}</li>
             </ul>
           </div>
-            `
+            `;
         cardsArray.push(cardBlock);
         console.log(cardsArray);
         
