@@ -7,20 +7,14 @@ const inquirer = require("inquirer");
 const path = require('path');
 //require fs for writing files
 const fs = require("fs");
-//import page template source file? sample.html
 
-//creat variables for foler and html file name
-//folder??
-// let fileName = "index.html";
 
 //empty array for the team member objects
 let teamMembers = [];
 //empty array for employee ID #'s, so that an ID cannot be repeated
-//based on this, for each new team member obj, will ahave to add their ID to this array, and check when creating a new team member if the ID is taken already
 let employeeIds = [];
 
-//SHould I create arrays here for all the groups of questions? (Manager questions, Intern, EMployee questions)
-
+//initial prompt
 inquirer
     .prompt([
         //need to add to initial prompt 1. ask for company name for use in fileName of HTML
@@ -63,7 +57,7 @@ inquirer
         //then push newEntry object to the teamMembers array
         console.log("Team members array: ", teamMembers);
     })
-    // now, use another .then to launch the main (non first instance) of inquirer prompt?
+    // now, use another .then to launch the main (non first instance) of inquirer prompt
     .then(() => {
         mainPromptFunc();
     });
@@ -82,8 +76,7 @@ function mainPromptFunc() {
         ])
         .then((response) => {
             if (response.employeeType === "All done adding employees") {
-                //generateHtml will contruct the page based on user inputs (stored in the arrays)
-                // generateHtml();
+                //generateCards will generate cards for each team member in the teamMembers Array
                 generateCards();
                 return console.log("All done! Creating team webpage.");
             } else if (response.employeeType === "Manager") {
@@ -228,12 +221,11 @@ function internPrompt() {
 };
 
 //define generateHtml function, which will use our inputs to create the webpage
-
 function generateHtml(cardsArray) {
     console.log("generateHtml has been launched!");
     //Note: This function is just to create all teh html content. In a separate function, use fs to write file
-    // console.log("Test: " + cardsArray);
-    //define any variable here (arrays?)
+        // console.log("Test: " + cardsArray);
+    //define any variable here 
     let re = /,/gi; // regular expression so we can replace alll of the commas
     let cardsString = cardsArray.toString().replace(re,"");
         // console.log("Cards string test of foramt: " + cardsString);
@@ -270,19 +262,16 @@ function generateHtml(cardsArray) {
 
 </html>
     `;
-    console.log("HTML check: ", allHtmlContent); // to test that the HTML content was created as intended
+    // console.log("HTML check: ", allHtmlContent); // to test that the HTML content was created as intended
 
     // Finally, pass the allHtmlContent variable to the writeFile function
     writeFile(allHtmlContent);
-    
-
 };
 
 function generateCards() {
     console.log("generateCards function has been launched!");
     //this function should generate the block of html that will contain all the cards
     //so that it can be pasted into the html generate in generateHtml()
-    //first, generate the html for a single card with appropriate variables inserted
 
     //define var cards array as empty array so that we can reference it later and send to generateHtml func...
     let cardsArray = [];
@@ -311,9 +300,9 @@ function generateCards() {
             empRole[i] = "Intern";
         };
 
-        //now have to go thru those above arrays and create a card for each....
+        //now go thru those above arrays and create a card for each....
         //it should create ONE card, then push it to the array
-        //...then later in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
+        //...then later in the main generator function, we can loop thru the cardsArray and append all into proper html spot
         let cardBlock = `
             <div class="card m-2 p-0 shadow" style="width: 18rem;">
             <div class="card-header bg-primary text-white" id="name">
@@ -333,11 +322,9 @@ function generateCards() {
         console.log(cardsArray);
         
     };
-
     //at the end we want to pass the cardsArray to the function generateHtml - so generateHtml(cardsArray)
     // console.log("Test to check if it is defined at line 301:" + cardsArray);
     generateHtml(cardsArray);
-
 };
 
 function writeFile(content) {
