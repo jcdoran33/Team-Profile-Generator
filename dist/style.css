@@ -1,7 +1,9 @@
 /* Tags */
 
 /* Classes */
-
+body {
+    background-color: beige;
+}
 /* IDs */
 #header-banner {
     background-color: orangered;

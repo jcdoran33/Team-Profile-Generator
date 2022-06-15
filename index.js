@@ -316,15 +316,15 @@ function generateCards() {
         //...then later in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
         let cardBlock = `
             <div class="card m-2 p-0 shadow" style="width: 18rem;">
-            <div class="card-header bg-primary" id="name">
+            <div class="card-header bg-primary text-white" id="name">
               ${empName[i]}
             </div>
-            <div class="card-header bg-secondary" id="role">
+            <div class="card-header bg-secondary text-white" id="role">
               ${empRole[i]}
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item bg-light" id="id">ID: ${empId[i]}</li>
-              <li class="list-group-item bg-light" id="email"><a href="mailto:${empEmail[i]}">Email: ${empEmail[i]}</a></li>
+              <li class="list-group-item bg-light" id="email">Email: <a href="mailto:${empEmail[i]}">${empEmail[i]}</a></li>
               <li class="list-group-item bg-light" id="special">${empSpecial[i]}</li>
             </ul>
           </div>
