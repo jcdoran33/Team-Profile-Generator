@@ -222,7 +222,7 @@ function internPrompt() {
 
 //define generateHtml function, which will use our inputs to create the webpage
 function generateHtml(cardsArray) {
-    console.log("generateHtml has been launched!");
+    // console.log("generateHtml has been launched!");
     //Note: This function is just to create all teh html content. In a separate function, use fs to write file
         // console.log("Test: " + cardsArray);
     //define any variable here 
@@ -269,7 +269,7 @@ function generateHtml(cardsArray) {
 };
 
 function generateCards() {
-    console.log("generateCards function has been launched!");
+    // console.log("generateCards function has been launched!");
     //this function should generate the block of html that will contain all the cards
     //so that it can be pasted into the html generate in generateHtml()
 
