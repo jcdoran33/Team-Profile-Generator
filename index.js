@@ -127,7 +127,7 @@ function managerPrompt() {
                 teamMembers.push(newEntry);
             };
             //then push newEntry object to the teamMembers array
-            console.log("Team members array: ", teamMembers);
+            // console.log("Team members array: ", teamMembers);
         })
         .then(() => {
             return mainPromptFunc();
@@ -170,7 +170,7 @@ function engineerPrompt() {
                 teamMembers.push(newEntry);
             };
             //then push newEntry object to the teamMembers array
-            console.log("Team members array: ", teamMembers);
+            // console.log("Team members array: ", teamMembers);
         })
         .then(() => {
             return mainPromptFunc();
@@ -213,7 +213,7 @@ function internPrompt() {
                 teamMembers.push(newEntry);
             };
             //then push newEntry object to the teamMembers array
-            console.log("Team members array: ", teamMembers);
+            // console.log("Team members array: ", teamMembers);
         })
         .then(() => {
             return mainPromptFunc();
@@ -319,7 +319,7 @@ function generateCards() {
           </div>
             `;
         cardsArray.push(cardBlock);
-        console.log(cardsArray);
+        // console.log(cardsArray); //test to view array
         
     };
     //at the end we want to pass the cardsArray to the function generateHtml - so generateHtml(cardsArray)
