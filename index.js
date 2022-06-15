@@ -315,7 +315,7 @@ function generateCards() {
         //it should create ONE card, then push it to the array
         //...then later in the main generator function, we can loop thru the cardsArray and append each one into proper html spot
         let cardBlock = `
-            <div class="card m-2" style="width: 18rem;">
+            <div class="card m-2 p-0 shadow" style="width: 18rem;">
             <div class="card-header bg-primary" id="name">
               ${empName[i]}
             </div>
