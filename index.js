@@ -55,7 +55,7 @@ inquirer
             teamMembers.push(newEntry);
         };
         //then push newEntry object to the teamMembers array
-        console.log("Team members array: ", teamMembers);
+        // console.log("Team members array: ", teamMembers); // test if added to array
     })
     // now, use another .then to launch the main (non first instance) of inquirer prompt
     .then(() => {
