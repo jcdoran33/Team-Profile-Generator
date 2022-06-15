@@ -4,7 +4,7 @@ This Node.js command-line application will generate an HTML webpage that display
 
 ## Link to Video Capture of Functioning Application
 
-[Google Drive Video Link](https://drive.google.com/file/d/1ZYj473iPqpll_zBOHENoHI3DRDGXtDnn/view)
+[Google Drive Video Link](https://drive.google.com/file/d/1lW1vk33tdpo-MxXTlD_wed9HxFhFSPPo/view)
 
 ## Sample HTML FIle
 
